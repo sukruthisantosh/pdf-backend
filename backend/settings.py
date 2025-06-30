@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-u=g3xriascl^%b*=#9cit0@r_ji86ls&!gn&y-p@@-=xpfd92o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pdf-backend-vc88.onrender.com']
+ALLOWED_HOSTS = [
+    'pdf-backend-vc88.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -126,5 +130,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://pdf-frontend-seven.vercel.app"
+    "https://pdf-frontend-seven.vercel.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

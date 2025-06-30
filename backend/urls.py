@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from backend.views import hello
+from backend.views import hello, upload_pdf
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('api/hello/', hello),
-]
+    path('api/hello/', hello),
+    path('api/upload/', upload_pdf),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
