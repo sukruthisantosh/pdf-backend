@@ -22,4 +22,11 @@ def upload_pdf(request):
     file_name = default_storage.save(save_path, file)
     file_url = settings.MEDIA_URL + file_name
 
-    return JsonResponse({'message': f'File "{file.name}" uploaded successfully!', 'url': file_url})
+    # return JsonResponse({'message': f'File "{file.name}" uploaded successfully!', 'url': file_url})
+
+    full_url = request.build_absolute_uri(file_url)
+
+    return JsonResponse({
+    'message': f'File "{file.name}" uploaded successfully!',
+    'url': full_url
+})
