@@ -25,3 +25,6 @@ urlpatterns = [
     path('api/hello/', hello),
     path('api/upload/', upload_pdf),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
