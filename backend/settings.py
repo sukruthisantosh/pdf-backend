@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u=g3xriascl^%b*=#9cit0@r_ji86ls&!gn&y-p@@-=xpfd92o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pdf-backend-vc88.onrender.com']
 
 
 # Application definition
