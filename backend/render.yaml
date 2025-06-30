@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: pdf-backend
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: gunicorn backend.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
