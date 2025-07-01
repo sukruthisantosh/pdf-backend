@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from backend.views import hello, upload_pdf, list_pdfs, run_migrations
+from backend.views import hello, upload_pdf, list_pdfs
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,7 +25,6 @@ urlpatterns = [
     path('api/hello/', hello),
     path('api/upload/', upload_pdf),
     path('api/list_pdfs/', list_pdfs),
-    path('api/run_migrations/', run_migrations),  # TEMP: migration endpoint
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
