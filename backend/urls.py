@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from backend.views import hello, upload_pdf
+from pdfs.views import get_pdfs, save_annotation, get_annotations, delete_annotation
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,6 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/hello/', hello),
     path('api/upload/', upload_pdf),
+    path('api/pdfs/', get_pdfs, name='get_pdfs'),
+    path('api/annotations/save/', save_annotation, name='save_annotation'),
+    path('api/annotations/<int:pdf_id>/', get_annotations, name='get_annotations'),
+    path('api/annotations/delete/<int:annotation_id>/', delete_annotation, name='delete_annotation'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
