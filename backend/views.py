@@ -6,6 +6,12 @@ import os
 from django.conf import settings
 from django.core.files.storage import default_storage
 from pdfs.models import PDF
+from django.core.management import call_command
+
+@api_view(["POST"])
+def run_migrations(request):
+    call_command('migrate')
+    return JsonResponse({"status": "migrations complete"})
 
 @api_view(["GET"])
 def hello(request):
